@@ -45,29 +45,8 @@ class LinkedList {
     };
 
     insert(index, value) {
-        var current = this.head;
-        var previuos = null;
-        for(var i = 0; i < this.length; i++) {
-            if(i > this.length) {
-                return;
-            }
-            if(index === 0) {
-                this.prepend(value);
-                return;
-            }
-            if(i === index) {
-                var newNode = {
-                    value: value,
-                    next: null
-                }
-                newNode.next = current;
-                previuos.next = newNode;
-                this.length = this.length + 1;  
-                return;        
-            } else {
-                previuos = current;
-                current = current.next;
-            }
+        if(index >= this.length) {
+            this.append(value);
         }
 
     };
