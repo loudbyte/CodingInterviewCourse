@@ -76,6 +76,7 @@ class LinkedList {
         if(index === 0) {
             const newHead = this.head.next;
             this.head = newHead;
+            this.length--;
             return; 
         }
         if(index >= this.length) {
@@ -83,8 +84,8 @@ class LinkedList {
         }
         const leaderNode = this.traverseToIndex(index - 1)
         const toRemove = leaderNode.next;
-        const updated = toRemove.next;
-        leaderNode.next = updated;
+        leaderNode.next = toRemove.next;
+        this.length--;
     }
 
 }
