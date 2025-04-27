@@ -71,6 +71,7 @@ class LinkedList {
         const leader = this.traverseToIndex(index - 1);
         const holdingPointer = leader.next;
 
+        holdingPointer.prev = newNode;
         newNode.prev = leader;
         leader.next = newNode;
         newNode.next = holdingPointer;
@@ -115,7 +116,7 @@ myLL.append(5);
 myLL.append(3);
 myLL.prepend(1);
 myLL.insert(3, 99);
-myLL.remove(3);
+myLL.remove(1);
 console.log(myLL.printList());
 console.log(myLL.printListBack());
 console.log(myLL.length);
