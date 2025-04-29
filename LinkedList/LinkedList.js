@@ -62,6 +62,11 @@ class LinkedList {
     insert(index, value) {
         if(index >= this.length) {
             this.append(value);
+            return;
+        }
+        if(index === 0) {
+            this.prepend(value);
+            return;
         }
         const newNode = {
             value: value,
