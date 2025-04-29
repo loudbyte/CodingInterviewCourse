@@ -114,6 +114,24 @@ class LinkedList {
         this.length--;
     }
 
+    reverse() {
+        var reversed = new LinkedList(this.tail.value);
+        for(var i = 1; i < this.length; i++) {
+            var current = this.traverseToIndex(this.length - i - 1); 
+            if(current === null) {
+                break;
+            }
+            reversed.append(current.value);
+        }
+        for(var i = 0; i < reversed.length; i++) {
+            this.insert(i, reversed.traverseToIndex(i).value);
+            if(i  === reversed.length) {
+                break;
+            }
+            this.remove(i+1);
+        }
+    }
+
 }
 
 let myLL = new LinkedList(10);
@@ -124,4 +142,6 @@ myLL.insert(3, 99);
 myLL.remove(1);
 console.log(myLL.printList());
 console.log(myLL.printListBack());
+myLL.reverse();
+console.log(myLL.printList());
 console.log(myLL.length);
